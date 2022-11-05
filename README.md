@@ -68,24 +68,6 @@ src
 +-- utils             # shared utility functions
 ```
 
-In order to scale the application in the easiest and most maintainable way, keep most of the code inside the `features` folder, which should contain different feature-based things. Every `feature` folder should contain domain specific code for a given feature. This will allow you to keep functionalities scoped to a feature and not mix its declarations with shared things. This is much easier to maintain than a flat folder structure with many files.
-
-A feature could have the following structure:
-
-```sh
-src/app/features/auth
-|
-+-- routes      # entry point for a feature and keeps routed components for a specific feature (Required). e.g. features/auth/routes/signup, features/auth/routes/signup, features/auth/routes/signin, etc
-|
-+-- state       # stateful slice of the redux state tree (Optional). e.g. src/app/features/auth/state/index.ts exports auth actions, thunks and auth reducer
-|
-+-- components  # components scoped to the specific feature (Optional)
-|
-+-- hooks       # hooks scoped to the specific feature (Optional)
-|
-+-- utils       # utility functions for the specific feature (Optional)
-```
-
 ### How to configure redux-toolkit
 ```ts
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
